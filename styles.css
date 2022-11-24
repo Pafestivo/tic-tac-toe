@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #007D83;
+  min-height: 100vh;
+  width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 200px 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  font-size: 5rem;
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid white;
+  width: max-content;
+  justify-self: center;
+}
+
+.game-board {
+  margin-top: 30px;
+  height: 450px;
+  width: 550px;
+  align-self: flex-start;
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgb(168, 168, 168);
+}
