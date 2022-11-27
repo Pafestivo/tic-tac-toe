@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #292929;
+}
+
 .container {
-  background-color: #007D83;
+  background-color: transparent;
   min-height: 100vh;
   width: 1000px;
   margin: 0 auto;
@@ -29,6 +33,85 @@
   height: 450px;
   width: 550px;
   align-self: flex-start;
-  border: 2px solid white;
-  box-shadow: 0 0 10px rgb(168, 168, 168);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.cell {
+  border: 1px solid white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:last-child {
+  border-bottom: none;
+}
+
+.x::before,
+.x::after {
+  content: '';
+  width: 15px;
+  height: 120px;
+  background-color: white;
+  position: absolute;
+}
+
+.x::before {
+  transform: rotate(45deg);
+}
+
+.x::after {
+  transform: rotate(-45deg);
+}
+
+.o::before {
+  content: '';
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 10px solid white;
+}
+
+#game-result {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-result h1 {
+  color: white;
+}
+
+#game-result button {
+  width: 180px;
+  height: 60px;
+  font-size: 2.2rem;
+  cursor: pointer;
 }
