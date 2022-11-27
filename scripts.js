@@ -22,7 +22,7 @@ const gameBoard = (() =>{
     const currentMarker = circleTurn ? "o" : "x";
     placeMarker(cell, currentMarker);
     if(checkWinner(currentMarker)) {
-      console.log(currentMarker + ' is winner')
+      endGame();
     }
     //check for draw
     swapTurns();
@@ -42,6 +42,19 @@ const gameBoard = (() =>{
 
   function swapTurns() {
     circleTurn = !circleTurn;
+  }
+
+  function endGame(draw) {
+    const winnerAnnouncer = document.getElementById('winner-message');
+    const gameResult = document.getElementById('game-result');
+    if (draw) {
+
+    } else if(circleTurn) {
+      winnerAnnouncer.textContent = `X is the winner!`
+    } else {
+      winnerAnnouncer.textContent = `O is the winner!`
+    }
+    gameResult.style.display = "flex";
   }
 })()
 
