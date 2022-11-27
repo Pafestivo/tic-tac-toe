@@ -13,9 +13,11 @@ const gameBoard = (() =>{
   let circleTurn
 
   const allCells = document.querySelectorAll('[data-cell]');
+  const refreshBtn = document.getElementById('refresh-btn');
   allCells.forEach(cell => {
     cell.addEventListener('click', clickHandler, {once: true});
   })
+  refreshBtn.addEventListener('click', refresh);
 
   function clickHandler(e) {
     const cell = e.target;
@@ -55,6 +57,10 @@ const gameBoard = (() =>{
       winnerAnnouncer.textContent = `O is the winner!`
     }
     gameResult.style.display = "flex";
+  }
+
+  function refresh() {
+    reload();
   }
 })()
 
