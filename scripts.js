@@ -10,6 +10,7 @@ const gameBoard = (() =>{
     [0, 4, 8],
     [2, 4, 6]
   ]
+  const board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   let circleTurn
 
   const allCells = document.querySelectorAll('[data-cell]');
@@ -45,7 +46,7 @@ const gameBoard = (() =>{
   }
 
   function checkDraw() {
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8].every(index => {
+    return board.every(index => {
       return allCells[index].classList.length === 2
     })
   }
