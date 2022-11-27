@@ -60,7 +60,7 @@ const gameBoard = (() =>{
   }
 
   function refresh() {
-    reload();
+    location.reload();
   }
 })()
 
