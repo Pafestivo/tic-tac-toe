@@ -1,7 +1,14 @@
 //game board module
 const gameBoard = (() =>{
+  const allCells = document.querySelectorAll('[data-cell]');
+  allCells.forEach(cell => {
+    cell.addEventListener('click', clickHandler, {once: true});
+  })
 
-})
+  function clickHandler() {
+    console.log('clicked');
+  }
+})()
 
 //players factory:
 function setPlayer(name, sign) {
