@@ -52,9 +52,9 @@ const gameBoard = (() =>{
     if (draw) {
 
     } else if(circleTurn) {
-      winnerAnnouncer.textContent = `X is the winner!`
-    } else {
       winnerAnnouncer.textContent = `O is the winner!`
+    } else {
+      winnerAnnouncer.textContent = `X is the winner!`
     }
     gameResult.style.display = "flex";
   }
