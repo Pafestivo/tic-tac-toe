@@ -26,7 +26,9 @@ const gameBoard = (() =>{
     if(checkWinner(currentMarker)) {
       endGame();
     }
-    //check for draw
+    if(checkDraw()) {
+      endGame(true);
+    }
     swapTurns();
   }
 
@@ -42,6 +44,12 @@ const gameBoard = (() =>{
     })
   }
 
+  function checkDraw() {
+    return [0, 1, 2, 3, 4, 5, 6, 7, 8].every(index => {
+      return allCells[index].classList.length === 2
+    })
+  }
+
   function swapTurns() {
     circleTurn = !circleTurn;
   }
@@ -50,7 +58,7 @@ const gameBoard = (() =>{
     const winnerAnnouncer = document.getElementById('winner-message');
     const gameResult = document.getElementById('game-result');
     if (draw) {
-
+      winnerAnnouncer.textContent = `It's a draw!`
     } else if(circleTurn) {
       winnerAnnouncer.textContent = `O is the winner!`
     } else {
