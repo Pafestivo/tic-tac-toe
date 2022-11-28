@@ -182,6 +182,13 @@ body {
   border: 10px solid white;
 }
 
+.players-info {
+  display: flex;
+  justify-self: center;
+  margin-bottom: 150px;
+  gap: 50px;
+}
+
 #game-result {
   position: fixed;
   top: 0;

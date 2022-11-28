@@ -7,19 +7,22 @@ const interface = (() => {
   const oSign = document.getElementById('o');
   const isPlayer1 = document.getElementById('is-player1');
   const isPlayer2 = document.getElementById('is-player2');
+  const player1Info = document.getElementById('player1-info');
+  const player2Info = document.getElementById('player2-info');
   
   startBtn.addEventListener('click', startGame);
   
   function startGame() {
     CreatePlayers();
+    updateInfo();
     overlay.style.display = 'none';
   }
 
   function CreatePlayers() {
     const sign1 = oSign.checked ? "o" : "x";
-    const name1 = isPlayer1.value === 'player' ? "Player1" : "Bot1";
+    const name1 = isPlayer1.value === 'player' ? "Player1" : "Bot";
     const sign2 = !oSign.checked ? "o" : "x";
-    const name2 = isPlayer2.value === 'player' ? "Player2" : "Bot2";
+    const name2 = isPlayer2.value === 'player' ? "Player2" : "Bot";
     players.first = setPlayer(name1, sign1);
     players.second = setPlayer(name2, sign2);
   }
@@ -27,6 +30,12 @@ const interface = (() => {
   function setPlayer(name, marker) {
     return {name, marker};
   }
+
+  function updateInfo() {
+    player1Info.textContent = `${players.first.name}: ${players.first.marker.toUpperCase()}`
+    player2Info.textContent = `${players.second.name}: ${players.second.marker.toUpperCase()}`
+  }
+
   return players;
 })()
 
@@ -93,9 +102,9 @@ const gameBoard = (() =>{
     if (draw) {
       winnerAnnouncer.textContent = `It's a draw!`
     } else if(player2Turn) {
-      winnerAnnouncer.textContent = `${interface.second.name} is the winner!`
+      winnerAnnouncer.textContent = `${interface.second.name} wins!`
     } else {
-      winnerAnnouncer.textContent = `${interface.first.name} is the winner!`
+      winnerAnnouncer.textContent = `${interface.first.name} wins!`
     }
     gameResult.style.display = "flex";
   }
