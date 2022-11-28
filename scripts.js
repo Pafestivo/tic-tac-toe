@@ -43,7 +43,7 @@ const gameBoard = (() =>{
     [2, 4, 6]
   ]
   const board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  let circleTurn
+  let player2Turn
 
   const allCells = document.querySelectorAll('[data-cell]');
   const refreshBtn = document.getElementById('refresh-btn');
@@ -54,7 +54,7 @@ const gameBoard = (() =>{
 
   function clickHandler(e) {
     const cell = e.target;
-    const currentMarker = circleTurn ? "o" : "x";
+    const currentMarker = player2Turn ? interface.second.marker : interface.first.marker;
     placeMarker(cell, currentMarker);
     if(checkWinner(currentMarker)) {
       endGame();
@@ -67,7 +67,6 @@ const gameBoard = (() =>{
 
   function placeMarker(cell, currentMarker) {
     cell.classList.add(currentMarker);
-    console.log(interface)
   }
 
   function checkWinner(currentMarker) {
@@ -85,7 +84,7 @@ const gameBoard = (() =>{
   }
 
   function swapTurns() {
-    circleTurn = !circleTurn;
+    player2Turn = !player2Turn;
   }
 
   function endGame(draw) {
@@ -93,10 +92,10 @@ const gameBoard = (() =>{
     const gameResult = document.getElementById('game-result');
     if (draw) {
       winnerAnnouncer.textContent = `It's a draw!`
-    } else if(circleTurn) {
-      winnerAnnouncer.textContent = `O is the winner!`
+    } else if(player2Turn) {
+      winnerAnnouncer.textContent = `${interface.second.name} is the winner!`
     } else {
-      winnerAnnouncer.textContent = `X is the winner!`
+      winnerAnnouncer.textContent = `${interface.first.name} is the winner!`
     }
     gameResult.style.display = "flex";
   }
