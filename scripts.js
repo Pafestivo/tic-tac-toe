@@ -1,3 +1,43 @@
+//interface module:
+const interface = (() => {
+  const players = {};
+
+  const startBtn = document.getElementById('start-game');
+  const overlay = document.getElementById('interface-overlay');
+  const oSign = document.getElementById('o');
+  const isPlayer1 = document.getElementById('is-player1');
+  const isPlayer2 = document.getElementById('is-player2');
+  const player1Info = document.getElementById('player1-info');
+  const player2Info = document.getElementById('player2-info');
+  
+  startBtn.addEventListener('click', startGame);
+  
+  function startGame() {
+    CreatePlayers();
+    updateInfo();
+    overlay.style.display = 'none';
+  }
+
+  function CreatePlayers() {
+    const sign1 = oSign.checked ? "o" : "x";
+    const name1 = isPlayer1.value === 'player' ? "Player1" : "Bot";
+    const sign2 = !oSign.checked ? "o" : "x";
+    const name2 = isPlayer2.value === 'player' ? "Player2" : "Bot";
+    players.first = setPlayer(name1, sign1);
+    players.second = setPlayer(name2, sign2);
+  }
+
+  function setPlayer(name, marker) {
+    return {name, marker};
+  }
+
+  function updateInfo() {
+    player1Info.textContent = `${players.first.name}: ${players.first.marker.toUpperCase()}`
+    player2Info.textContent = `${players.second.name}: ${players.second.marker.toUpperCase()}`
+  }
+
+  return players;
+})()
 
 //game module
 const gameBoard = (() =>{
@@ -73,4 +113,3 @@ const gameBoard = (() =>{
     location.reload();
   }
 })()
-
