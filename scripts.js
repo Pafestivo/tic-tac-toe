@@ -28,7 +28,6 @@ const interface = (() => {
   function setPlayer(name, marker) {
     return {name, marker};
   }
-  return {player1, player2}
 })()
 
 //game module
