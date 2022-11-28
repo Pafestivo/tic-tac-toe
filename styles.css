@@ -53,7 +53,7 @@ body {
   margin-top: 5px;
 }
 
-.choose-sign {
+.choose-marker {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,9 +61,9 @@ body {
   gap: 30px;
 }
 
-.sign2,
-.sign2 > input,
-.sign2 > label {
+.marker2,
+.marker2 > input,
+.marker2 > label {
   cursor: not-allowed;
   position: relative;
   display: inline-block;
@@ -79,7 +79,7 @@ body {
   z-index: 4;
 }
 
-.disabled-sign:hover .tooltip-text {
+.disabled-marker:hover .tooltip-text {
   visibility: visible;
 }
 
