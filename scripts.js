@@ -68,7 +68,7 @@ const gameBoard = (() =>{
     if(checkWinner(currentMarker)) {
       endGame();
     }
-    if(checkDraw()) {
+    if(checkDraw() && !checkWinner) {
       endGame(true);
     }
     swapTurns();
