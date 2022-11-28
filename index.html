@@ -12,24 +12,54 @@
   <div class="interface">
     <div class="players">
       <div class="player">
-        <h1 class="player-title">Player 1</h1>
+        <h1>Player 1</h1>
+
         <div class="select-container">
-          <label for="is-player1">Select:</label>
+          <label for="is-player1" class="is-player">Select:</label>
           <select name="is-player1" id="is-player1">
             <option value="player">Player</option>
             <option value="bot">bot</option>
           </select>
         </div><!-- /select-container -->
+
+        <div class="choose-sign">
+          <div class="sign">
+            <input type="radio" id="x" name="sign1" value="x" checked>
+            <label for="x">x</label>
+          </div> <!-- /sign -->
+
+          <div class="sign">
+            <input type="radio" id="o" name="sign1" value="o">
+            <label for="o">o</label>
+          </div><!-- /sign -->
+        </div> <!-- /choose-sign -->
       </div> <!-- /player1 -->
+
       <div class="player">
-        <h1 class="player-title">Player 2</h1>
+        <h1>Player 2</h1>
+
         <div class="select-container">
-          <label for="is-player2">Select:</label>
+          <label for="is-player2" class="is-player">Select:</label>
           <select name="is-player2" id="is-player2">
             <option value="player">Player</option>
             <option value="bot">bot</option>
           </select>
         </div><!-- /select-container-->
+
+        <div class="choose-sign">
+          <div class="disabled-sign">
+          <div class="sign2">
+            <input type="radio" id="x2" name="sign2" value="x" disabled>
+            <label for="x">x</label>
+          </div> <!-- /sign2 -->
+
+          <div class="sign2">
+            <input type="radio" id="o2" name="sign2" value="o" disabled>
+            <label for="o">o</label>
+          </div><!-- /sign2 -->
+          <span class="tooltip-text">Will be chosen automatically</span>
+          </div> <!-- /disabled-sign -->
+        </div> <!-- /choose-sign -->
       </div> <!-- /player2 -->
     </div><!-- /players -->
     
