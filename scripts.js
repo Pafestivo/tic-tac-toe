@@ -1,5 +1,6 @@
 //interface module:
 const interface = (() => {
+  const players = {};
 
   const startBtn = document.getElementById('start-game');
   const overlay = document.getElementById('interface-overlay');
@@ -10,8 +11,7 @@ const interface = (() => {
   startBtn.addEventListener('click', startGame);
   
   function startGame() {
-    CreatePlayers
-    console.log(CreatePlayers());
+    CreatePlayers();
     overlay.style.display = 'none';
   }
 
@@ -20,14 +20,14 @@ const interface = (() => {
     const name1 = isPlayer1.value === 'player' ? "Player1" : "Bot1";
     const sign2 = !oSign.checked ? "o" : "x";
     const name2 = isPlayer2.value === 'player' ? "Player2" : "Bot2";
-    const player1 = setPlayer(name1, sign1);
-    const player2 = setPlayer(name2, sign2);
-    return {player1, player2};
+    players.first = setPlayer(name1, sign1);
+    players.second = setPlayer(name2, sign2);
   }
 
   function setPlayer(name, marker) {
     return {name, marker};
   }
+  return players;
 })()
 
 //game module
@@ -67,6 +67,7 @@ const gameBoard = (() =>{
 
   function placeMarker(cell, currentMarker) {
     cell.classList.add(currentMarker);
+    console.log(interface)
   }
 
   function checkWinner(currentMarker) {
