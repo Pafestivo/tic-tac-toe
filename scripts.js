@@ -1,4 +1,4 @@
-//game board module
+//game module
 const gameBoard = (() =>{
   const winningCombinations = [
     [0, 1, 2],
@@ -73,9 +73,19 @@ const gameBoard = (() =>{
   }
 })()
 
-//players factory:
-function setPlayer(name, marker) {
-  return {name, marker};
-}
-const playerOne = setPlayer('player1', 'X');
-const playerTwo = setPlayer('player2', 'O');
+//interface module:
+interface = (() => {
+  //players factory
+  function setPlayer(name, marker) {
+    return {name, marker};
+  }
+  const startBtn = document.getElementById('start-game');
+  const interface = document.getElementById('interface-overlay');
+  
+  startBtn.addEventListener('click', startGame);
+  
+  function startGame() {
+    interface.style.display = 'none';
+  }
+})()
+
