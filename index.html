@@ -9,6 +9,34 @@
   <title>Tic-Tac-Toe</title>
 </head>
 <body>
+  <div class="interface">
+    <div class="players">
+      <div class="player">
+        <h1 class="player-title">Player 1</h1>
+        <div class="select-container">
+          <label for="is-player1">Select:</label>
+          <select name="is-player1" id="is-player1">
+            <option value="player">Player</option>
+            <option value="bot">bot</option>
+          </select>
+        </div><!-- /select-container -->
+      </div> <!-- /player1 -->
+      <div class="player">
+        <h1 class="player-title">Player 2</h1>
+        <div class="select-container">
+          <label for="is-player2">Select:</label>
+          <select name="is-player2" id="is-player2">
+            <option value="player">Player</option>
+            <option value="bot">bot</option>
+          </select>
+        </div><!-- /select-container-->
+      </div> <!-- /player2 -->
+    </div><!-- /players -->
+    
+    <button id="start-game">Start Game</button>
+  </div><!-- /interface -->
+
+
   <div class="container">
     <h1 class="header">Tic-Tac-Toe</h1>
     <div class="game-board">
